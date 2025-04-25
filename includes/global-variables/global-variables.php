@@ -4,15 +4,22 @@ if (!defined('ABSPATH')) exit;
 
 // Register Fields
 add_action('admin_init', function () {
-    $fields = [
+      $fields = [
         'min_amt' => 'Minimum Amount',
         'max_amt' => 'Maximum Amount',
-        'interest_rate' => 'Interest Rate',
-        'processing_fees' => 'Processing Fees',
+        'amt_range' => 'Amount Range',
+        'min_interest' => 'Minimum Interest',
+        'max_interest' => 'Maximum Interest',
+        'interest_range' => 'Interest Range',
         'tenure' => 'Tenure',
-        'low_interest' => 'Interest As Low As',
-        'minutes' => 'Minutes',
+        'tenure_range' => 'Tenure Range',
         'download_app_link' => 'Download App Link',
+        'processing_fees' => 'Processing Fees',
+        'processing_range' => 'Processing Range',
+        'time_seconds' => 'Time (Seconds)',
+        'time_minutes' => 'Time (Minutes)',
+        'age' => 'Age',
+        'low_interest' => 'Low Interest',
     ];
     
 
