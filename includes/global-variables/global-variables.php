@@ -5,21 +5,16 @@ if (!defined('ABSPATH')) exit;
 // Register Fields
 add_action('admin_init', function () {
       $fields = [
+          'interest_range' => 'Interest Range',
+          'tenure_range' => 'Tenure Range',
+          'processing_range' => 'Processing Range',
         'min_amt' => 'Minimum Amount',
         'max_amt' => 'Maximum Amount',
-        'amt_range' => 'Amount Range',
-        'min_interest' => 'Minimum Interest',
-        'max_interest' => 'Maximum Interest',
-        'interest_range' => 'Interest Range',
         'tenure' => 'Tenure',
-        'tenure_range' => 'Tenure Range',
         'download_app_link' => 'Download App Link',
-        'processing_fees' => 'Processing Fees',
-        'processing_range' => 'Processing Range',
         'time_seconds' => 'Time (Seconds)',
         'time_minutes' => 'Time (Minutes)',
-        'age' => 'Age',
-        'low_interest' => 'Low Interest',
+        'low_interest' => 'As Low As Interest',
     ];
     
 
@@ -28,9 +23,13 @@ add_action('admin_init', function () {
     foreach ($fields as $key => $label) {
         foreach ($langs as $lang_code => $lang_label) {
             // Skip download_app_link for hi and mr
-            if ($key === 'download_app_link' && in_array($lang_code, ['hi', 'mr'])) {
+            if (
+                in_array($key, ['download_app_link', 'time_seconds', 'time_minutes', 'low_interest']) &&
+                in_array($lang_code, ['hi', 'mr'])
+            ) {
                 continue;
             }
+
 
             $option_name = "{$key}_{$lang_code}";
 
@@ -73,7 +72,7 @@ add_action('admin_init', function () {
 
 // Register Shortcodes
 add_action('init', function () {
-    $fields = ['min_amt', 'max_amt', 'interest_rate', 'processing_fees', 'tenure', 'low_interest', 'minutes', 'download_app_link'];
+    $fields = ['interest_range', 'tenure_range', 'processing_range', 'min_amt', 'max_amt', 'tenure', 'download_app_link', 'time_seconds', 'time_minutes', 'low_interest'];
     $langs = ['en', 'hi', 'mr'];
 
     foreach ($fields as $field) {
@@ -82,7 +81,8 @@ add_action('init', function () {
             if ($field === 'download_app_link' && in_array($lang, ['hi', 'mr'])) {
                 continue;
             }
-
+        
+            
             add_shortcode("{$field}_{$lang}", function () use ($field, $lang) {
                 $option = get_option("{$field}_{$lang}", '');
 
