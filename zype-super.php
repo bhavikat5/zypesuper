@@ -60,7 +60,31 @@ function zype_super_main_page() {
     <?php
 }
 
+function zype_super_register_widgets($widgets_manager) {
+    require_once __DIR__ . '/elementor-widgets/widget-loan-by-amount.php';
+    $widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Amount_Widget());
+}
+add_action('elementor/widgets/register', 'zype_super_register_widgets');
 
+function zype_super_register_styles() {
+    wp_register_style(
+        'zype-loan-buttons',
+        plugin_dir_url(__FILE__) . 'assets/css/widget.css',
+        [],
+        '1.0.0'
+    );
+}
+add_action('init', 'zype_super_register_styles');
+
+add_action( 'elementor/elements/categories_registered', function( $elements_manager ) {
+    $elements_manager->add_category(
+        'zype-super',
+        [
+            'title' => __( 'Zype Super', 'zype-super' ),
+            'icon'  => 'fa fa-plug',
+        ]
+    );
+} );
 
 // Include the two plugins - DO NOT include the widget file directly here
 require_once ZYPE_SUPER_PATH . 'includes/global-variables/global-variables.php';
