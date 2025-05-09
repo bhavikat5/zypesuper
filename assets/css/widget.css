@@ -12,18 +12,19 @@
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.5s, backgroud-color 0.5s;
+  transition: transform 0.2s, backgroud-color 0.2s;
 }
 .zype-loan-links a:hover {
   background-color: #e0e0e0;
 }
 .zype-loan-links .titleBold {
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
 @media (max-width: 520px) {
   .zype-loan-links {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    padding: 0 5%;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    padding: 0 10px; /* Try fixed padding instead of % */
   }
 }

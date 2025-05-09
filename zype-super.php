@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zype Super
  * Description: Combined plugin featuring Global Variables Manager and Custom Widget functionality
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Bhavik
  * Text Domain: zype-super
  */
@@ -63,6 +63,9 @@ function zype_super_main_page() {
 function zype_super_register_widgets($widgets_manager) {
     require_once __DIR__ . '/elementor-widgets/widget-loan-by-amount.php';
     $widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Amount_Widget());
+
+    require_once __DIR__ . '/elementor-widgets/widget-loan-by-salary.php';
+$widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Salary_Widget());
 }
 add_action('elementor/widgets/register', 'zype_super_register_widgets');
 
@@ -71,10 +74,12 @@ function zype_super_register_styles() {
         'zype-loan-buttons',
         plugin_dir_url(__FILE__) . 'assets/css/widget.css',
         [],
-        '1.0.0'
+        '1.0.1'
     );
 }
 add_action('init', 'zype_super_register_styles');
+
+
 
 add_action( 'elementor/elements/categories_registered', function( $elements_manager ) {
     $elements_manager->add_category(
@@ -85,6 +90,8 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
         ]
     );
 } );
+
+
 
 // Include the two plugins - DO NOT include the widget file directly here
 require_once ZYPE_SUPER_PATH . 'includes/global-variables/global-variables.php';

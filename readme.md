@@ -8,11 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-<<<<<<< HEAD
 A modular WordPress plugin that allows you to manage multilingual global variables via shortcodes, and extend functionality using custom widgets.A
-=======
-A modular WordPress plugin that allows you to manage multilingual global variables via shortcodes, and extend functionality using custom widgets.
->>>>>>> f458a76f4bffb213265f58501b5ea63971403fc1
 
 == Description ==
 
