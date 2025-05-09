@@ -1,0 +1,29 @@
+.zype-loan-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 10%;
+}
+.zype-loan-links a {
+  text-decoration: none;
+  color: #333;
+  background-color: rgb(241, 250, 255);
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.5s, backgroud-color 0.5s;
+}
+.zype-loan-links a:hover {
+  background-color: #e0e0e0;
+}
+.zype-loan-links .titleBold {
+  font-weight: 900;
+}
+
+@media (max-width: 520px) {
+  .zype-loan-links {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    padding: 0 5%;
+  }
+}
