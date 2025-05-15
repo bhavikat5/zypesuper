@@ -21,10 +21,14 @@
   font-weight: 700;
   font-size: 1.1em;
 }
+.tableNote {
+  font-size: 12px;
+  font-style: italic;
+}
 
 @media (max-width: 520px) {
   .zype-loan-links {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    padding: 0 10px; /* Try fixed padding instead of % */
+    padding: 0 10px;
   }
 }

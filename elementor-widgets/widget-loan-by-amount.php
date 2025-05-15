@@ -234,6 +234,6 @@ class Loan_By_Amount_Widget extends Widget_Base {
     }
 
     public function get_style_depends() {
-        return ['zype-loan-buttons'];
+        return ['widget-css'];
     }
 }

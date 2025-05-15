@@ -106,7 +106,7 @@ if (!is_numeric($interest_rate) || $interest_rate === '') {
         }
 
         echo '</tbody></table>';
-        echo '<p style="margin-top:10px; font-style: italic; color: #666;">' . esc_html($note) . '</p>';
+        echo '<p class="tableNote">' . esc_html($note) . '</p>';
     }
 
     private function get_translated_labels($lang) {
@@ -120,8 +120,8 @@ if (!is_numeric($interest_rate) || $interest_rate === '') {
                 ];
             case 'mr': // Marathi
                 return [
-                    'loan_amount' => 'कर्ज रक्कम(₹)',
-                    'interest_rate' => 'व्याज दर(%)',
+                    'loan_amount' => 'कर्ज रक्कम (₹)',
+                    'interest_rate' => 'व्याज दर (%)',
                     'tenure' => 'कालावधी (महिने)',
                     'emi' => 'ईएमआय (₹)',
                 ];
@@ -153,5 +153,8 @@ if (!is_numeric($interest_rate) || $interest_rate === '') {
             return 'Note: The above table is just for illustration purpose. The actual number may differ.';
     }
 }
+  public function get_style_depends() {
+        return ['widget-css'];
+    }
 
 }

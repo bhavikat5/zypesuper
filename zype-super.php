@@ -84,15 +84,13 @@ add_action('elementor/widgets/register', 'zype_super_register_widgets');
 
 function zype_super_register_styles() {
     wp_register_style(
-        'zype-loan-buttons',
+        'widget-css',
         plugin_dir_url(__FILE__) . 'assets/css/widget.css',
         [],
         '1.0.1'
     );
 }
 add_action('init', 'zype_super_register_styles');
-
-
 
 add_action( 'elementor/elements/categories_registered', function( $elements_manager ) {
     $elements_manager->add_category(
@@ -103,24 +101,6 @@ add_action( 'elementor/elements/categories_registered', function( $elements_mana
         ]
     );
 } );
-
-// function zype_super_register_emi_settings() {
-//     add_menu_page(
-//         'EMI Defaults',
-//         'EMI Defaults',
-//         'manage_options',
-//         'zype-super-emi-defaults',
-//         'zype_super_emi_defaults_page',
-//         'dashicons-calculator',
-//         56
-//     );
-
-//     add_action('admin_init', function() {
-//         register_setting('zype_super_emi_group', 'zype_super_default_interest');
-//     });
-// }
-
-// add_action('admin_menu', 'zype_super_register_emi_settings');
 
 function zype_super_emi_defaults_page() {
     ?>
