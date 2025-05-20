@@ -5,34 +5,32 @@ if (!defined('ABSPATH')) exit;
 // Register Fields
 add_action('admin_init', function () {
       $fields = [
-          'interest_range' => 'Interest Range',
-          'tenure_range' => 'Tenure Range',
-          'processing_range' => 'Processing Range',
+        'interest_range' => 'Interest Range',
+        'tenure_range' => 'Tenure Range',
+        'processing_range' => 'Processing Range',
         'min_amt' => 'Minimum Amount',
         'max_amt' => 'Maximum Amount',
         'tenure' => 'Tenure',
-        'download_app_link' => 'Download App Link',
+        'max_amt_lakh' => 'Maximum Amount (Lakh)',
         'time_seconds' => 'Time (Seconds)',
         'time_minutes' => 'Time (Minutes)',
         'low_interest' => 'As Low As Interest',
     ];
     
 
-    $langs = ['en' => 'English', 'hi' => 'Hindi', 'mr' => 'Marathi'];
+    $langs = ['en' => 'English', 'hi' => 'Hindi', 'mr' => 'Marathi', 'ta' => 'Tamil'];
 
     foreach ($fields as $key => $label) {
         foreach ($langs as $lang_code => $lang_label) {
             // Skip download_app_link for hi and mr
             if (
-                in_array($key, ['download_app_link', 'time_seconds', 'time_minutes', 'low_interest']) &&
-                in_array($lang_code, ['hi', 'mr'])
+                in_array($key, ['max_amt_lakh', 'time_seconds', 'time_minutes', 'low_interest']) &&
+                in_array($lang_code, ['hi', 'mr', 'ta'])
             ) {
                 continue;
             }
 
-
             $option_name = "{$key}_{$lang_code}";
-
             // Use different sanitization for download_app_link
             $sanitize_callback = ($key === 'download_app_link')
                 ? 'wp_kses_post' // allows basic HTML
@@ -49,12 +47,9 @@ add_action('admin_init', function () {
                     $value = esc_attr(get_option($option_name));
                     $shortcode = '[' . $option_name . ']';
 
-                    // Use textarea for HTML field
-                    if ($key === 'download_app_link') {
-                        echo "<textarea name='{$option_name}' class='large-text' rows='3'>{$value}</textarea>";
-                    } else {
+                    
                         echo "<input type='text' name='{$option_name}' value='{$value}' class='regular-text'>";
-                    }
+                
 
                     echo "<p style='margin-top: 5px; font-size: 12px; color: #666;'>
                         <code class='gvm-shortcode' data-copy='[{$option_name}]'>[{$option_name}]</code>

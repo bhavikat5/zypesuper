@@ -44,6 +44,7 @@ class Loan_By_Salary_Widget extends Widget_Base {
                     'en' => __('English', 'zype-super'),
                     'hindi' => __('Hindi', 'zype-super'),
                     'mr' => __('Marathi', 'zype-super'),
+                    'tamil' => __('Tamil', 'zype-super'),
                 ],
             ]
         );
@@ -137,6 +138,7 @@ class Loan_By_Salary_Widget extends Widget_Base {
             'en' => 'Salary Personal Loan',
             'hindi' => 'वेतन व्यक्तिगत ऋण',
             'mr' => 'पगार वैयक्तिक कर्ज',
+            'tamil' => 'சம்பளம் தனிநபர் கடன்',
         ];
 
         echo '<div class="zype-loan-links">';
