@@ -67,7 +67,7 @@ add_action('admin_init', function () {
 
 // Register Shortcodes
 add_action('init', function () {
-    $fields = ['interest_range', 'tenure_range', 'processing_range', 'min_amt', 'max_amt', 'tenure', 'download_app_link', 'time_seconds', 'time_minutes', 'low_interest'];
+    $fields = ['interest_range', 'tenure_range', 'processing_range', 'min_amt', 'max_amt', 'tenure', 'download_app_link', 'time_seconds', 'time_minutes', 'low_interest','max_amt_lakh'];
     $langs = ['en', 'hi', 'mr','ta'];
 
     foreach ($fields as $field) {
