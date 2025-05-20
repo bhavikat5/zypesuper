@@ -68,24 +68,12 @@ add_action('admin_init', function () {
 // Register Shortcodes
 add_action('init', function () {
     $fields = ['interest_range', 'tenure_range', 'processing_range', 'min_amt', 'max_amt', 'tenure', 'download_app_link', 'time_seconds', 'time_minutes', 'low_interest'];
-    $langs = ['en', 'hi', 'mr'];
+    $langs = ['en', 'hi', 'mr','ta'];
 
     foreach ($fields as $field) {
-        foreach ($langs as $lang) {
-            // Skip download_app_link for hi and mr
-            if ($field === 'download_app_link' && in_array($lang, ['hi', 'mr'])) {
-                continue;
-            }
-        
-            
+        foreach ($langs as $lang) {  
             add_shortcode("{$field}_{$lang}", function () use ($field, $lang) {
                 $option = get_option("{$field}_{$lang}", '');
-
-                // Allow safe HTML only for download_app_link_en
-                if ($field === 'download_app_link' && $lang === 'en') {
-                    return wp_kses_post($option);
-                }
-
                 return esc_html($option);
             });
         }
