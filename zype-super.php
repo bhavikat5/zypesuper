@@ -41,15 +41,14 @@ function zype_super_add_admin_menu() {
     );
 
     // Add EMI Table as submenu
-   add_submenu_page(
-    'zype-super',
-    'EMI Table Interest Defaults',
-    'EMI Table Interest Defaults',
-    'manage_options',
-    'zype-super-emi-defaults',
-    'zype_super_emi_defaults_page'
-);
-    
+    add_submenu_page(
+        'zype-super',
+        'EMI Table Interest Defaults',
+        'EMI Table Interest Defaults',
+        'manage_options',
+        'zype-super-emi-defaults',
+        'zype_super_emi_defaults_page'
+    );  
 }
 add_action('admin_init', function() {
     register_setting('zype_super_emi_group', 'zype_super_default_interest');
@@ -64,8 +63,7 @@ function zype_super_main_page() {
             <h2>Plugin Features</h2>
             <p>This plugin combines the following functionality:</p>
             <ul style="list-style-type: disc; padding-left: 20px;">
-                <li><strong>Global Variables Manager</strong>: Manage multilingual global variables</li>
-               
+                <li><strong>Global Variables Manager</strong>: Manage multilingual global        variables</li>      
             </ul>
             <p>Use the sidebar menu to access each component.</p>
         </div>
@@ -78,7 +76,10 @@ function zype_super_register_widgets($widgets_manager) {
     $widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Amount_Widget());
 
     require_once __DIR__ . '/elementor-widgets/widget-loan-by-salary.php';
-$widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Salary_Widget());
+    $widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Salary_Widget());
+
+    require_once plugin_dir_path(__FILE__) . 'elementor-widgets/widget-emi-table.php';
+    $widgets_manager->register(new \ZypeSuper\Widgets\EMI_Table_Widget());
 }
 add_action('elementor/widgets/register', 'zype_super_register_widgets');
 
@@ -124,12 +125,24 @@ function zype_super_emi_defaults_page() {
     <?php
 }
 
+function zype_policy_shortcode($atts) {
+    $atts = shortcode_atts([
+        'slug' => '',
+        'field' => '',
+    ], $atts);
 
-// Load EMI Table widget
-add_action('elementor/widgets/register', function($widgets_manager) {
-    require_once plugin_dir_path(__FILE__) . 'elementor-widgets/widget-emi-table.php';
-    $widgets_manager->register(new \ZypeSuper\Widgets\EMI_Table_Widget());
-});
+    if (empty($atts['slug'])) return '';
 
-// Include the two plugins - DO NOT include the widget file directly here
+    $policy = get_page_by_path($atts['slug'], OBJECT, 'policy');
+    if (!$policy) return '';
+
+    if (!empty($atts['field']) && function_exists('get_field')) {
+        $acf_content = get_field($atts['field'], $policy->ID);
+        return $acf_content ?: '';
+    }
+
+    return apply_filters('the_content', $policy->post_content);
+}
+add_shortcode('policy_content', 'zype_policy_shortcode');
+
 require_once ZYPE_SUPER_PATH . 'includes/global-variables/global-variables.php';

@@ -111,6 +111,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'en' => '₹25,000',
                 'hindi' => '₹25,000',
                 'mr' => '₹25,000',
+                'tamil' => '₹25,000',
             ],
             '30000' => [
                 'en' => '₹30,000',
