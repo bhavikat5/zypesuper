@@ -81,7 +81,6 @@ class Loan_By_Amount_Widget extends Widget_Base {
             '4000' => [
                 'en' => '₹4,000',
                 'hindi' => '₹4,000',
-                // 'mr' => '₹4,000',
             ],
             '5000' => [
                 'en' => '₹5,000',
@@ -91,9 +90,6 @@ class Loan_By_Amount_Widget extends Widget_Base {
             ],
             '8000' => [
                 'en' => '₹8,000',
-                // 'hindi' => '₹8,000',
-                // 'mr' => '₹8,000',
-                // 'tamil' => '₹8,000',
             ],
             '10000' => [
                 'en' => '₹10,000',
@@ -139,8 +135,6 @@ class Loan_By_Amount_Widget extends Widget_Base {
             ],
             '45000' => [
                 'en' => '₹45,000',
-                // 'hindi' => '₹45,000',
-                // 'mr' => '₹45,000',
             ],
             '50000' => [
                 'en' => '₹50,000',
@@ -163,7 +157,6 @@ class Loan_By_Amount_Widget extends Widget_Base {
             '75000' => [
                 'en' => '₹75,000',
                 'hindi' => '₹75,000',
-                // 'mr' => '₹75,000',
             ],
             '80000' => [
                 'en' => '₹80,000',
@@ -175,12 +168,10 @@ class Loan_By_Amount_Widget extends Widget_Base {
             '90000' => [
                 'en' => '₹90,000',
                 'hindi' => '₹90,000',
-                // 'mr' => '₹90,000',
             ],
             '95000' => [
                 'en' => '₹95,000',
                 'hindi' => '₹95,000',
-                // 'mr' => '₹95,000',
             ],
             '1-lakh' => [
                 'en' => '₹1 Lakh',
