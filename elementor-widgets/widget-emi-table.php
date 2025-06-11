@@ -84,7 +84,7 @@ if (!is_numeric($interest_rate) || $interest_rate === '') {
 
         $labels = $this->get_translated_labels($language);
         $note = $this->get_translated_note($language);
-        $tenures = [ 6, 9, 12];
+        $tenures = [ 6, 9, 12, 18];
         $monthly_rate = $interest_rate / (12 * 100);
         
         echo '<table class="productTable">';
