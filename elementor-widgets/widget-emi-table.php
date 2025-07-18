@@ -150,7 +150,7 @@ if (!is_numeric($interest_rate) || $interest_rate === '') {
         case 'ta': // Tamil
             return 'குறிப்பு: மேலே உள்ள அட்டவணை விளக்கக் குறிக்கோளுக்காக மட்டுமே. உண்மையான எண்ணிக்கை மாறுபடக்கூடும்.';
         default: // English
-            return 'Note: The above table is just for illustration purpose. The actual number may differ.';
+            return 'Note: The above table is just for illustration purposes. The actual number may differ.';
     }
 }
   public function get_style_depends() {
