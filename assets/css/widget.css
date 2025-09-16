@@ -13,6 +13,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s, backgroud-color 0.2s;
+  line-height: 1.4em;
 }
 .zype-loan-links a:hover {
   background-color: #e0e0e0;
@@ -31,5 +32,9 @@
   .zype-loan-links {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     padding: 0 10px;
+  }
+  .zype-loan-links a {
+    padding: 10px;
+    font-size: 0.9em;
   }
 }

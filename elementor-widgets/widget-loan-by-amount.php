@@ -81,6 +81,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
             '4000' => [
                 'en' => '₹4,000',
                 'hindi' => '₹4,000',
+                'mr' => '₹4,000',
             ],
             '5000' => [
                 'en' => '₹5,000',
@@ -88,8 +89,15 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'mr' => '₹5,000',
                 'tamil' => '₹5,000',
             ],
+            '6000' => [
+                'en' => '₹6,000',
+            ],
+            '7000' => [
+                'en' => '₹7,000',
+            ],
             '8000' => [
                 'en' => '₹8,000',
+                'mr' => '₹8,000',
             ],
             '10000' => [
                 'en' => '₹10,000',
@@ -102,6 +110,12 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'hindi' => '₹15,000',
                 'mr' => '₹15,000',
                 'tamil' => '₹15,000',
+            ],
+            '16000' => [
+                'en' => '₹16,000',
+            ],
+            '17000' => [
+                'en' => '₹17,000',
             ],
             '20000' => [
                 'en' => '₹20,000',
@@ -135,6 +149,8 @@ class Loan_By_Amount_Widget extends Widget_Base {
             ],
             '45000' => [
                 'en' => '₹45,000',
+                'hindi' => '₹45,000',
+                'mr' => '₹45,000',
             ],
             '50000' => [
                 'en' => '₹50,000',
@@ -157,6 +173,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
             '75000' => [
                 'en' => '₹75,000',
                 'hindi' => '₹75,000',
+                'mr' => '₹75,000',
             ],
             '80000' => [
                 'en' => '₹80,000',
@@ -164,14 +181,15 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'mr' => '₹80,000',
                 'tamil' => '₹80,000',
             ],
-
             '90000' => [
                 'en' => '₹90,000',
                 'hindi' => '₹90,000',
+                'mr' => '₹90,000',
             ],
             '95000' => [
                 'en' => '₹95,000',
                 'hindi' => '₹95,000',
+                'mr' => '₹95,000',
             ],
             '1-lakh' => [
                 'en' => '₹1 Lakh',
@@ -199,7 +217,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'mr' => '₹4 लाख',
             ],
             '5-lakh' => [
-                'en' => '₹5 Lakh',  
+                'en' => '₹5 Lakh',
                 'hindi' => '₹5 लाख',
                 'mr' => '₹5 लाख',
             ],
@@ -227,14 +245,18 @@ class Loan_By_Amount_Widget extends Widget_Base {
         foreach ($loan_amounts as $slug => $labels) {
             if (in_array($slug, $excluded)) continue;
     
-            // Check if the label for the selected language exists
             if (!isset($labels[$language])) {
-                // Skip this loan amount if the label is missing for the selected language
-                continue;
+                continue; // skip if translation missing
             }
     
             $label = $labels[$language];
-            $url = esc_url("https://www.getzype.com/{$url_prefix}{$slug}-personal-loan/");
+    
+            // ✅ Special case: only English 20000 goes to urgent URL
+            if ((string)$slug === '20000' && $language === 'en') {
+                $url = esc_url("https://www.getzype.com/20000-urgent-personal-loan/");
+            } else {
+                $url = esc_url("https://www.getzype.com/{$url_prefix}{$slug}-personal-loan/");
+            }
     
             echo '<a href="' . $url . '">';
             echo '<span class="titleBold">' . esc_html($label) . '</span><br>' . esc_html($loan_texts[$language]);

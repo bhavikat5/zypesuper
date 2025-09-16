@@ -80,6 +80,9 @@ function zype_super_register_widgets($widgets_manager) {
 
     require_once plugin_dir_path(__FILE__) . 'elementor-widgets/widget-emi-table.php';
     $widgets_manager->register(new \ZypeSuper\Widgets\EMI_Table_Widget());
+
+    require_once __DIR__ . '/elementor-widgets/widget-loan-by-location.php';
+    $widgets_manager->register(new \ZypeSuper\ElementorWidgets\Loan_By_Location_Widget());
 }
 add_action('elementor/widgets/register', 'zype_super_register_widgets');
 
@@ -88,7 +91,7 @@ function zype_super_register_styles() {
         'widget-css',
         plugin_dir_url(__FILE__) . 'assets/css/widget.css',
         [],
-        '1.0.1'
+        '1.0.2'
     );
 }
 add_action('init', 'zype_super_register_styles');
