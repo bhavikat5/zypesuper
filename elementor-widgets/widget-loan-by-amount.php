@@ -82,6 +82,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'en' => '₹4,000',
                 'hindi' => '₹4,000',
                 'mr' => '₹4,000',
+                'tamil' => '₹4,000',
             ],
             '5000' => [
                 'en' => '₹5,000',
@@ -151,6 +152,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'en' => '₹45,000',
                 'hindi' => '₹45,000',
                 'mr' => '₹45,000',
+                'tamil' => '₹45,000',
             ],
             '50000' => [
                 'en' => '₹50,000',
@@ -174,6 +176,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'en' => '₹75,000',
                 'hindi' => '₹75,000',
                 'mr' => '₹75,000',
+                'tamil' => '₹75,000',
             ],
             '80000' => [
                 'en' => '₹80,000',
@@ -195,31 +198,37 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'en' => '₹1 Lakh',
                 'hindi' => '₹1 लाख',
                 'mr' => '₹1 लाख',
+                'tamil' => '₹1 லட்சம்',
             ],
             '1.5-lakh' => [
                 'en' => '₹1.5 Lakh',
                 'hindi' => '₹1.5 लाख',
                 'mr' => '₹1.5 लाख',
+                'tamil' => '₹1.5 லட்சம்',
             ],
             '2-lakh' => [
                 'en' => '₹2 Lakh',
                 'hindi' => '₹2 लाख',
                 'mr' => '₹2 लाख',
+                'tamil' => '₹2 லட்சம்',
             ],
             '3-lakh' => [
                 'en' => '₹3 Lakh',
                 'hindi' => '₹3 लाख',
                 'mr' => '₹3 लाख',
+                'tamil' => '₹3 லட்சம்',
             ],
             '4-lakh' => [
                 'en' => '₹4 Lakh',
                 'hindi' => '₹4 लाख',
                 'mr' => '₹4 लाख',
+                'tamil' => '₹4 லட்சம்',
             ],
             '5-lakh' => [
                 'en' => '₹5 Lakh',
                 'hindi' => '₹5 लाख',
                 'mr' => '₹5 लाख',
+                'tamil' => '₹5 லட்சம்',
             ],
         ];
     }
