@@ -107,7 +107,16 @@ class Loan_By_Location_Widget extends Widget_Base {
     'meerut'          => ['en' => 'Meerut'],
     'jodhpur'         => ['en' => 'Jodhpur'],
     'varanasi'        => ['en' => 'Varanasi'],
-    'sonipat'         => ['en' => 'Sonipat'],
+    // 'sonipat'         => ['en' => 'Sonipat'],
+    // 'panipat'         => ['en' => 'Panipat'],
+    // 'kota'            => ['en' => 'Kota'],
+    // 'jabalpur'        => ['en' => 'Jabalpur'],
+    // 'mysuru'          => ['en' => 'Mysuru'],
+    // 'kanpur'          => ['en' => 'Kanpur'],
+    // 'shimla'          => ['en' => 'Shimla'],
+    // 'rourkela'         => ['en' => 'Rourkela'],
+    // 'srinagar'        => ['en' => 'Srinagar'],
+    // 'pimpri-chinchwad' => ['en' => 'Pimpri-Chinchwad'],
 ];
         return $locations;
     }
