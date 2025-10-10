@@ -106,6 +106,9 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'mr' => '₹10,000',
                 'tamil' => '₹10,000',
             ],
+            '12000' => [
+               'en' => '₹12,000',
+            ],
             '15000' => [
                 'en' => '₹15,000',
                 'hindi' => '₹15,000',
@@ -200,7 +203,7 @@ class Loan_By_Amount_Widget extends Widget_Base {
                 'mr' => '₹1 लाख',
                 'tamil' => '₹1 லட்சம்',
             ],
-            '1.5-lakh' => [
+            '1-5-lakh' => [
                 'en' => '₹1.5 Lakh',
                 'hindi' => '₹1.5 लाख',
                 'mr' => '₹1.5 लाख',
